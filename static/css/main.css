@@ -1,0 +1,7 @@
+
+body{
+    font-family: monospace;
+}
+#output_p{
+    white-space: pre-wrap;
+}

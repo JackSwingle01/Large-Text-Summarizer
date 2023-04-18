@@ -1,35 +1,24 @@
-# A basic python web server that serves index.html
+from flask import Flask, render_template, request
+from completions import get_summary
 
-import http.server
-import socketserver
-
-HOST = "localhost"
-PORT = 3000
-
-class Handler (http.server.SimpleHTTPRequestHandler):
-
-    def do_GET(self):
-        if self.path == "/":
-            self.path = "/index.html"
-            super().do_GET()
-        elif self.path == "/test":
-            self.send_response(200)
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-            message = "Hello World"
-            self.wfile.write(message.encode())
-        else:
-            self.send_error(404, "File not found")
-    
+app = Flask(__name__)
 
 
-if __name__ == "__main__":
-    web_server = http.server.HTTPServer((HOST, PORT), Handler)
-    print("serving at port", PORT)
-    try:
-        web_server.serve_forever()
-    except KeyboardInterrupt:
-        pass
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    web_server.server_close()
-    print("Server closed.")
+
+@app.route('/summarize', methods=['POST'])
+def summarize():
+    text = request.get_json().get('text')
+    if not text:
+        return "No text provided"
+    print(f"TEXT: {text}")
+    summary = get_summary(text)
+    print (summary)
+    return summary
+
+
+if __name__ == '__main__':
+    app.run()
