@@ -1,6 +1,6 @@
 from completions import get_summary
 
-filename = 'data.txt'
+filename = './data/data.txt'
 
 
 def save_chunk_summary_to_file(filename: str = filename):
@@ -23,9 +23,9 @@ def split_string_to_chunks(string: str, chunk_size: int = 2096):
     pass
 
 
-def summarize_long_text(text: str, max_size: int = 2096):
+def summarize_long_text(text: str, max_size: int = 1000):
     while (len(text) >= max_size):
-        # take a long piece of text and split it into chunks of size 2096
+        # take a long piece of text and split it into chunks
         chunks = split_string_to_chunks(text)
         # save the chunks summaries to a file
         for chunk in chunks:
