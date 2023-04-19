@@ -25,6 +25,7 @@ def split_string_to_chunks(string: str, chunk_size: int = 2096):
 
 def summarize_long_text(text: str, max_size: int = 1000):
     while (len(text) >= max_size):
+        clear_file()
         # take a long piece of text and split it into chunks
         chunks = split_string_to_chunks(text)
         # save the chunks summaries to a file
