@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 from completions import get_summary
 
+# For testing chunking methods
+#from chunking import clear_file, save_chunk_summary_to_file, read_file, split_string_to_chunks
+
 app = Flask(__name__)
 
 
@@ -22,3 +25,9 @@ def summarize():
 
 if __name__ == '__main__':
     app.run()
+
+    # Chunking methods testing
+    #clear_file()
+    #save_chunk_summary_to_file("Summary goes here.\n")
+    #read_file()
+    #split_string_to_chunks(read_file())

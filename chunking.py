@@ -3,24 +3,37 @@ from completions import get_summary
 filename = './data/data.txt'
 
 
-def save_chunk_summary_to_file(filename: str = filename):
+def save_chunk_summary_to_file(summary: str, filename: str = filename):
     # append a chunk to the end of the file
-    pass
+    file = open(filename, "a")
+    file.write(summary)
+    file.close()
+
+    return
 
 
 def clear_file(filename: str = filename):
     # clear the file
-    pass
+    file = open(filename, "w")
+    file.close()
+
+    return
 
 
 def read_file(filename: str = filename):
     # read the entire file into a string and return it
-    pass
+    file = open(filename, "r")
+    string = file.read()
+    file.close()
+
+    return string
 
 
 def split_string_to_chunks(string: str, chunk_size: int = 2096):
     # split string to chunks and return it as a list of strings of size chunk_size
-    pass
+    chunks = [string[i:i + chunk_size] for i in range(0, len(string), chunk_size)]
+
+    return chunks
 
 
 def summarize_long_text(text: str, max_size: int = 1000):
