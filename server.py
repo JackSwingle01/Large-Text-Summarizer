@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from completions import get_summary
+from chunking import summarize_long_text
 
 # For testing chunking methods
 #from chunking import clear_file, save_chunk_summary_to_file, read_file, split_string_to_chunks
@@ -17,9 +18,13 @@ def summarize():
     text = request.get_json().get('text')
     if not text:
         return "No text provided"
-    print(f"TEXT: {text}")
-    summary = get_summary(text)
-    print (summary)
+
+    max_size = 1000
+    if len(text) > max_size:
+        summary = summarize_long_text(text)
+    else:
+        summary = get_summary(text)
+
     return summary
 
 

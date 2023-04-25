@@ -9,7 +9,7 @@ openai.api_key = API_KEY
 
 def get_summary(message):
     summary = get_completion(
-        message, system_message='Summarize the following using bullet points: ')
+        message, system_message='Summarize the most important information using bullet points: ')
     return summary
 
 
@@ -23,6 +23,5 @@ def get_completion(message, system_message=None):
         ],
         max_tokens=int(MAX_CHAT_TOKENS / 2),
         temperature=0.25
-
     )
     return completion.choices[0].message.content
