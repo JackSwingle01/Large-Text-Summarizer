@@ -15,13 +15,15 @@ def get_summary(message):
 
 def get_completion(message, system_message=None):
     MAX_CHAT_TOKENS = 4096
+
     completion = openai.ChatCompletion.create(
         model='gpt-3.5-turbo',
         messages=[
             {'role': 'system', 'content': system_message},
             {'role': 'user', 'content': message}
         ],
-        max_tokens=int(MAX_CHAT_TOKENS / 2),
+        max_tokens=int(MAX_CHAT_TOKENS / 3),
         temperature=0.25
     )
+    
     return completion.choices[0].message.content

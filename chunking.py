@@ -1,10 +1,10 @@
 from os import path
 from completions import get_summary
 
-filename = './data/data.txt'
+# filename = './data/data.txt'
 
 
-def save_to_file(text: str, filename: str = filename):
+def save_to_file(text: str, filename: str):
     # append a chunk to the end of the file
     file = open(filename, "a")
     file.write(text)
@@ -13,7 +13,7 @@ def save_to_file(text: str, filename: str = filename):
     return
 
 
-def clear_file(filename: str = filename):
+def clear_file(filename: str):
     # clear the file
     file = open(filename, "w")
     file.close()
@@ -21,7 +21,7 @@ def clear_file(filename: str = filename):
     return
 
 
-def read_file(filename: str = filename):
+def read_file(filename: str):
     # read the entire file into a string and return it
     file = open(filename, "r")
     string = file.read()
@@ -45,7 +45,7 @@ def split_string_to_chunks(string: str, chunk_size: int = MAX_CHARS):
 
     return chunks
 
-def file_is_empty(filename: str = filename):
+def file_is_empty(filename: str):
     #check if the file exists
     if not path.exists(filename):
         return True
@@ -77,7 +77,7 @@ def summarize_long_text(text: str, max_summary_size: int = 2000):
 
         # clear the file
         if not file_is_empty(filename):
-            clear_file()
+            clear_file(filename=filename)
 
         # save the chunks summaries to a file
         for chunk in chunks:
