@@ -19,11 +19,11 @@ def index():
 @app.route('/summarize', methods=['POST'])
 def summarize():
     text = request.get_json().get('text')
+    summary_size = request.get_json().get('summary_size')
     if not text:
         return "No text provided"
 
-    max_size = 1000
-    summary = summarize_long_text(text, max_summary_size=max_size)
+    summary = summarize_long_text(text, max_summary_size=summary_size)
 
     return summary
 

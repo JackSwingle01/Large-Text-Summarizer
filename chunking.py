@@ -40,9 +40,20 @@ MAX_CHARS = token_to_char_count(MAX_TOKENS)
 
 def split_string_to_chunks(string: str, chunk_size: int = MAX_CHARS):
     # split string to chunks and return it as a list of strings of size chunk_size
-    chunks = [string[i:i + chunk_size]
-              for i in range(0, len(string), chunk_size)]
-
+    # chunks = [string[i:i + chunk_size] for i in range(0, len(string), chunk_size)]
+    sentences = string.split(".")
+    chunk = []
+    chunks = []
+    chunk_char_count = 0
+    for sentence in sentences:
+        if chunk_char_count + len(sentence) < chunk_size:
+            chunk.append(sentence)
+            chunk_char_count += len(sentence)
+        else:
+            chunks.append(".".join(chunk))
+            chunk = [sentence]
+            chunk_char_count = len(sentence)
+    print ([chunk[:10], chunk[-10:] for chunk in chunks])
     return chunks
 
 def file_is_empty(filename: str):
@@ -89,4 +100,5 @@ def summarize_long_text(text: str, max_summary_size: int = 2000):
         # once all of the chunks have been summarized, read the file check if it is below the max size
         # if it is, then return the text
         # if it is not, then clear the file and repeat the process
+
     return text

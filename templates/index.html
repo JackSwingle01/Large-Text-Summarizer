@@ -13,17 +13,18 @@
     <h1 align="center">Text Summarizer</h1>
     <div>
         <textarea name="input_textarea" id="input_textarea"></textarea>
-        <label id="size_label">What size of summary would you like?</label>
+        <label id="size_label">Select the max summary size:</label>
         <select id="size_selector">
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
+            <option value="short">Short</option>
+            <option value="medium">Medium</option>
+            <option value="long">Long</option>
+           
         </select>
         <button id="get_summary_button">Get Summary</button>
     </div>
     <div id="output_div">
         <h2>Summary:</h2>
-        <p id="output_p">summary goes here</p>
+        <p id="output_p">Waiting for input...</p>
     </div>
 <footer>
     <p>Large Text Summarizer</p>
