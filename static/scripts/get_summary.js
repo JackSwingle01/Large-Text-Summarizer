@@ -11,7 +11,6 @@ const character_count = {
     'long': 3000
 }
 
-
 get_summary_button.addEventListener('click', async () => {
     let text = input_textarea.value;
     let size = size_selector.value;

@@ -1,6 +1,27 @@
 # Large Text Summarizer
  For Intro to AI.
 
+## HOW TO RUN:
+
+### 1. Install dependencies
+
+	>pip install openai
+	>pip install flask
+	>pip install flask_cors
+
+### 2. Run the server
+
+	>python3 server.py
+
+### 3. Open the webpage and use the app
+
+	go to http://localhost:5000/
+	paste a selection of text into the text box
+	select the length of the summary you want
+	click the "Summarize" button
+	wait for the summary to appear in the text box below (this may take a few seconds/minutes depending on length)
+
+
 ## Project 4 Proposal: 
 ### Authors: Jack Swingle and Brandon Westbrook
 ### Project type: Application
@@ -28,5 +49,4 @@ By April 28:
 	Polish look of the front end. (TBD)
 	Add options for different summary lengths. (if time permits) (TBD)
 	Bug testing and general polish and tweaks. (TBD)
-
 

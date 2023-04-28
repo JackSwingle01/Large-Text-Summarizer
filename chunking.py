@@ -53,11 +53,12 @@ def split_string_to_chunks(string: str, chunk_size: int = MAX_CHARS):
             chunks.append(".".join(chunk))
             chunk = [sentence]
             chunk_char_count = len(sentence)
-    print ([chunk[:10], chunk[-10:] for chunk in chunks])
+    print([chunk[:10], chunk[-10:] for chunk in chunks])
     return chunks
 
+
 def file_is_empty(filename: str):
-    #check if the file exists
+    # check if the file exists
     if not path.exists(filename):
         return True
 
@@ -67,7 +68,6 @@ def file_is_empty(filename: str):
     file.close()
 
     return string == ""
-
 
 
 def summarize_long_text(text: str, max_summary_size: int = 2000):
@@ -83,8 +83,9 @@ def summarize_long_text(text: str, max_summary_size: int = 2000):
 
         # take a long piece of text and split it into chunks
         chunks = split_string_to_chunks(text)
-        
-        print(f"Summary no. {summary_version}:\nNumber of chunks: {len(chunks)}")
+
+        print(
+            f"Summary no. {summary_version}:\nNumber of chunks: {len(chunks)}")
 
         # clear the file
         if not file_is_empty(filename):

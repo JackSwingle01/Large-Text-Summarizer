@@ -1,11 +1,9 @@
-import os
 import openai
 
 from SECRET_KEY import API_KEY
 openai.api_key = API_KEY
 
 # print(openai.Model.list()) for testing key and connection
-
 
 def get_summary(message):
     summary = get_completion(
@@ -25,5 +23,5 @@ def get_completion(message, system_message=None):
         max_tokens=int(MAX_CHAT_TOKENS / 3),
         temperature=0.25
     )
-    
+
     return completion.choices[0].message.content

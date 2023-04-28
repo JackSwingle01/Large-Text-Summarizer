@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from completions import get_summary
 from chunking import summarize_long_text
 from flask_cors import CORS
 
