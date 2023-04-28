@@ -9,7 +9,7 @@ openai.api_key = API_KEY
 
 def get_summary(message):
     summary = get_completion(
-        message, system_message='Summarize the most important information using bullet points: ')
+        message, system_message='Summarize the following text: ')
     return summary
 
 

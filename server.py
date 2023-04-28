@@ -4,11 +4,12 @@ from chunking import summarize_long_text
 from flask_cors import CORS
 
 # For testing chunking methods
-#from chunking import clear_file, save_chunk_summary_to_file, read_file, split_string_to_chunks
+# from chunking import clear_file, save_chunk_summary_to_file, read_file, split_string_to_chunks
 
 app = Flask(__name__)
 
 CORS(app, origins=['http://localhost:5000'])
+
 
 @app.route('/')
 def index():
@@ -22,10 +23,7 @@ def summarize():
         return "No text provided"
 
     max_size = 1000
-    if len(text) > max_size:
-        summary = summarize_long_text(text)
-    else:
-        summary = get_summary(text)
+    summary = summarize_long_text(text, max_summary_size=max_size)
 
     return summary
 
@@ -34,7 +32,7 @@ if __name__ == '__main__':
     app.run()
 
     # Chunking methods testing
-    #clear_file()
-    #save_chunk_summary_to_file("Summary goes here.\n")
-    #read_file()
-    #split_string_to_chunks(read_file())
+    # clear_file()
+    # save_chunk_summary_to_file("Summary goes here.\n")
+    # read_file()
+    # split_string_to_chunks(read_file())
