@@ -1,6 +1,7 @@
-
+//max char buttons
 const get_summary_button = document.querySelector('#get_summary_button');
 const input_textarea = document.querySelector('#input_textarea');
+const summary_size = document.querySelector('#size_selector')
 const output = document.querySelector('#output_p');
 const url = 'http://localhost:5000/summarize'
 get_summary_button.addEventListener('click', async () => {

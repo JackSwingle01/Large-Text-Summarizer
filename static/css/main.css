@@ -12,9 +12,8 @@ body {
 	border-radius: 37.5px;
 	font-size: 18px;
 	display: block;
-	margin-top: 25px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 75px auto;
+	background-color: #f0f0f0;
 }
 
 #input_textarea {
@@ -43,6 +42,19 @@ body {
 	color: #333;
 
 
+}
+#size_label{
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#size_selector{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #f0f0f0;
 }
 
 h1 {
